@@ -8,6 +8,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 export class HikeDetailsComponent implements OnInit {
     title: string;
+    searchTerm:string;
     constructor(private _route: ActivatedRoute, private _router: Router) {}
     
     ngOnInit(){
