@@ -5,12 +5,12 @@ import {ContactUsComponent} from './contact-us.component';
 
 
 @NgModule ({
-    imports :[CommonModule, FormsModule],
+    imports : [CommonModule, FormsModule],
     declarations : [ContactUsComponent],
     exports : [ ContactUsComponent],
     providers : []
-    
+
 })
-export class ContactModule{
-    
+export class ContactModule {
+
 }

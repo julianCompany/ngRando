@@ -11,7 +11,7 @@
 				 #msgSubject="ngModel"
 				 required>
 	</div>
-	
+	<div *ngIf="msgSubject.invalid && msgSubject.touched">Message manquant</div>
 	<div class="form-group">
 		<label for="message"> Message</label>
 		<textarea type="text" 

@@ -6,5 +6,5 @@ import {Component} from '@angular/core';
 })
 
 export class ContactUsComponent {
-    
+    isVisible: boolean = true;
 }
