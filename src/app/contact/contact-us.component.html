@@ -1,7 +1,9 @@
 <h2>Contactez nous !</h2>
-<form #formVar="ngForm" novalidate>
-	<div class="form-group">
-		<label for="subject"> Sujet</label>
+<form #formVar="ngForm" (submit) = "sendMessage(formVar)" novalidate>
+	<div class="form-group" 
+		[class.has-error]="msgSubject.invalid && msgSubject.touched">
+		<label for="subject" 
+			class="control-label"> Sujet</label>
 		<input   type="text"
 				 class="form-control"
 				 placeholder="Sujet" 
@@ -11,15 +13,18 @@
 				 #msgSubject="ngModel"
 				 required>
 	</div>
-	<div *ngIf="msgSubject.invalid && msgSubject.touched">Message manquant</div>
-	<div class="form-group">
-		<label for="message"> Message</label>
+	<div class="form-group" 
+		[class.has-error]="msgMessage.invalid &&msgMessage.touched">
+		<label for="message"
+			class = "control-label"> Message</label>
 		<textarea type="text" 
 				  class="form-control" 
 				  placeholder="Message" 
 				  id="message" 
-				  ngModel 
-				  name="message"></textarea>
+				  ngModel
+				  #msgMessage="ngModel"
+				  name="message"
+				  required></textarea>
 	</div>	
 	
 	<div class="form-group">
@@ -33,8 +38,9 @@
 			<option value="guide">Guide moyenne montagne</option>
 		</select>
 	</div>		
-	<button type="submit" class="btn btn-default">Envoyer/poster</button>
+	<button type="submit" class="btn btn-primary" [disabled] = "formVar.invalid">Envoyer/poster</button>
 </form>
 
-FormVar : {{formVar.value | json}}
+FormVar : {{formVar.valid}}
+<br>
 Sujet : {{ msgSubject.valid }}
