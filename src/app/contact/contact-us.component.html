@@ -1,7 +1,9 @@
 <h2>Contactez nous !</h2>
 <form #formVar="ngForm" novalidate>
-	<div class="form-group">
-		<label for="subject"> Sujet</label>
+	<div class="form-group" 
+		[class.has-error]="msgSubject.invalid && msgSubject.touched">
+		<label for="subject" 
+			class="control-label"> Sujet</label>
 		<input   type="text"
 				 class="form-control"
 				 placeholder="Sujet" 
@@ -11,7 +13,6 @@
 				 #msgSubject="ngModel"
 				 required>
 	</div>
-	<div *ngIf="msgSubject.invalid && msgSubject.touched">Message manquant</div>
 	<div class="form-group">
 		<label for="message"> Message</label>
 		<textarea type="text" 
