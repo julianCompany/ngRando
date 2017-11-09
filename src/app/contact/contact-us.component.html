@@ -13,14 +13,18 @@
 				 #msgSubject="ngModel"
 				 required>
 	</div>
-	<div class="form-group">
-		<label for="message"> Message</label>
+	<div class="form-group" 
+		[class.has-error]="msgMessage.invalid &&msgMessage.touched">
+		<label for="message"
+			class = "control-label"> Message</label>
 		<textarea type="text" 
 				  class="form-control" 
 				  placeholder="Message" 
 				  id="message" 
-				  ngModel 
-				  name="message"></textarea>
+				  ngModel
+				  #msgMessage="ngModel"
+				  name="message"
+				  required></textarea>
 	</div>	
 	
 	<div class="form-group">
@@ -34,8 +38,9 @@
 			<option value="guide">Guide moyenne montagne</option>
 		</select>
 	</div>		
-	<button type="submit" class="btn btn-default">Envoyer/poster</button>
+	<button type="submit" class="btn btn-primary" [disabled] = "formVar.invalid">Envoyer/poster</button>
 </form>
 
-FormVar : {{formVar.value | json}}
+FormVar : {{formVar.valid}}
+<br>
 Sujet : {{ msgSubject.valid }}
